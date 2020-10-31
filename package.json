@@ -1,0 +1,19 @@
+{
+  "name": "battle_city_online",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/parser": "^4.1.1",
+    "eslint": "^7.9.0",
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^4.0.3"
+  },
+  "scripts": {
+    "dev:server": "",
+    "dev:client": "parcel ./src/client/index.html",
+    "build": "parcel build ./src/client/index.html",
+    "tsc": "tsc"
+  }
+}
