@@ -13,7 +13,7 @@
   "scripts": {
     "dev:server": "",
     "dev:client": "parcel ./src/client/index.html",
-    "build": "parcel build ./src/client/index.html",
+    "build": "parcel build ./src/client/index.html --public-url=\"./\"",
     "tsc": "tsc"
   }
 }
