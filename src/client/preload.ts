@@ -1,4 +1,4 @@
-import PlayerImage from "../assets/player_1.png"; 
+import PlayerImage from "../assets/player_1.png";
 import Brick_1Image from "../assets/brick_1.png";
 import Brick_2Image from "../assets/brick_2.png";
 import Brick_3Image from "../assets/brick_3.png";
@@ -11,19 +11,32 @@ import Tree_1Image from "../assets/tree_1.png";
 import Tree_2Image from "../assets/tree_2.png";
 import Tree_3Image from "../assets/tree_3.png";
 import Tree_4Image from "../assets/tree_4.png";
-// import BaseImage from "../assets/base.png";
+import BaseImage from "../assets/base.png";
+import BaseDestroyedImage from "../assets/base_destroyed.png";
 import Water_1Image from "../assets/water_1.png";
 import Water_2Image from "../assets/water_2.png";
 import Water_3Image from "../assets/water_3.png";
 import Water_4Image from "../assets/water_4.png";
+import AITank_1Image from "../assets/ai_tank_1.png";
+import AITank_2Image from "../assets/ai_tank_2.png";
+import AITank_3Image from "../assets/ai_tank_3.png";
+import AITank_4Image from "../assets/ai_tank_4.png";
+import AITank_5Image from "../assets/ai_tank_5.png";
+import AITank_6Image from "../assets/ai_tank_6.png";
+import AITank_7Image from "../assets/ai_tank_7.png";
+import ExplosionSmall_1Image from "../assets/explosion_small_1.png";
+import ExplosionSmall_2Image from "../assets/explosion_small_2.png";
+import ExplosionSmall_3Image from "../assets/explosion_small_3.png";
+import ExplosionBig_1Image from "../assets/explosion_big_1.png";
+import ExplosionBig_2Image from "../assets/explosion_big_2.png";
 
-
+export interface Sprite {
+  file: string;
+  img?: HTMLImageElement;
+}
 
 interface Sprites {
-  [key: string]: {
-    file: string;
-    img?: HTMLImageElement;
-  };
+  [key: string]: Sprite;
 }
 
 export const SPRITES: Sprites = {
@@ -77,6 +90,48 @@ export const SPRITES: Sprites = {
   },
   water_4: {
     file: Water_4Image,
+  },
+  ai_tank_1: {
+    file: AITank_1Image,
+  },
+  ai_tank_2: {
+    file: AITank_2Image,
+  },
+  ai_tank_3: {
+    file: AITank_3Image,
+  },
+  ai_tank_4: {
+    file: AITank_4Image,
+  },
+  ai_tank_5: {
+    file: AITank_5Image,
+  },
+  ai_tank_6: {
+    file: AITank_6Image,
+  },
+  ai_tank_7: {
+    file: AITank_7Image,
+  },
+  base: {
+    file: BaseImage,
+  },
+  base_destroyed: {
+    file: BaseDestroyedImage,
+  },
+  explosion_small_1: {
+    file: ExplosionSmall_1Image,
+  },
+  explosion_small_2: {
+    file: ExplosionSmall_2Image,
+  },
+  explosion_small_3: {
+    file: ExplosionSmall_3Image,
+  },
+  explosion_big_1: {
+    file: ExplosionBig_1Image,
+  },
+  explosion_big_2: {
+    file: ExplosionBig_2Image,
   },
 };
 

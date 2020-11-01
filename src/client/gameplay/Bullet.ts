@@ -1,21 +1,28 @@
 import { DIR, BULLET_SIZE, BULLET_SPEED, BLOCK_SIZE } from "../constants";
-import { overlappingBlocks, bodyIsVisible, blockIndexInBounds } from "../utils";
+import { bodyIsVisible, blockIndexInBounds, AABBIntersects } from "../utils";
 
 import { Body } from "./Body";
 import { Block } from "./Block";
 import { gameManager } from "./GameManager";
 import { XY } from "..";
+import { Tank } from "./Tank";
+import { ExplosionBig } from "./Explosion";
 
 export class Bullet extends Body {
   dir: DIR = DIR.NONE;
+  tank: Tank;
+  destroy = false;
 
-  constructor(x: number, y: number, dir: DIR) {
+  constructor(tank: Tank, x: number, y: number, dir: DIR) {
     super(x, y, BULLET_SIZE, BULLET_SIZE);
 
     this.dir = dir;
+    this.tank = tank;
   }
 
   update(): void {
+    let destroyBullet = false;
+
     switch (this.dir) {
       case DIR.LEFT:
         this.pos.x -= BULLET_SPEED;
@@ -47,16 +54,58 @@ export class Bullet extends Body {
       }
 
       if (hit) {
-        gameManager.bullets.splice(gameManager.bullets.indexOf(this), 1);
+        destroyBullet = true;
+      }
+    } else if (AABBIntersects(this, gameManager.base)) {
+      if (!gameManager.base.isDestroyed) {
+        gameManager.base.destroy();
+        gameManager.explosions.push(
+          new ExplosionBig(gameManager.base.center.x, gameManager.base.center.y)
+        );
+
+        destroyBullet = true;
+      }
+    } else {
+      for (const tank of gameManager.tanks) {
+        if (tank === this.tank) {
+          continue;
+        }
+
+        if (this.tank.ai === tank.ai) {
+          continue;
+        }
+
+        if (AABBIntersects(tank, this)) {
+          destroyBullet = true;
+          tank.destroy = true;
+        }
+      }
+
+      for (const bullet of gameManager.bullets) {
+        if (bullet.tank === this.tank) {
+          continue;
+        }
+
+        if (bullet.tank.ai === this.tank.ai) {
+          continue;
+        }
+
+        if (AABBIntersects(bullet, this)) {
+          destroyBullet = true;
+        }
       }
     }
 
     if (!bodyIsVisible(this)) {
-      gameManager.bullets.splice(gameManager.bullets.indexOf(this), 1);
+      destroyBullet = true;
+    }
+
+    if (destroyBullet) {
+      this.destroy = true;
     }
   }
   render(): void {
-    gameManager.ctx.fillStyle = "#fff";
+    gameManager.ctx.fillStyle = "#ff7e1f";
     gameManager.ctx.fillRect(this.pos.x, this.pos.y, BULLET_SIZE, BULLET_SIZE);
   }
   hitBlocks(): Array<Block> {
@@ -133,17 +182,6 @@ export class Bullet extends Body {
         items.push(gameManager.blocks[pos4.y][pos4.x] as Block);
       }
     }
-
-    // for (let x = lPos; x < lPos + radius; x++) {
-    //   for (let y = tPos; y < tPos + radius; y++) {
-    //     if (!blockIndexInBounds(x, y)) {
-    //       continue;
-    //     }
-    //     if (gameManager.blocks[y][x]) {
-    //       items.push(gameManager.blocks[y][x] as Block);
-    //     }
-    //   }
-    // }
 
     return items;
   }

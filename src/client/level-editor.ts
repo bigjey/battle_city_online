@@ -9,10 +9,14 @@ import {
 import { gameManager } from "./gameplay/GameManager";
 import { renderCluster } from "./utils";
 
-const $level_editor = document.querySelectorAll("#level-editor");
+const $level_editor = document.getElementById("level-editor");
 const $pallete_colors: NodeListOf<HTMLDivElement> = document.querySelectorAll(
   ".pallete__color"
 );
+const $level_editor_clear = document.getElementById(
+  "level-editor__clear-level"
+);
+
 const classnames: { [key: string]: string } = {
   activePaletteColor: "pallete__color--active",
 };
@@ -47,6 +51,12 @@ export class LevelEditor {
           $color.classList.add(classnames.activePaletteColor);
         }
       });
+    });
+
+    $level_editor_clear?.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      gameManager.resetDebugLevel();
     });
 
     gameManager.canvas.addEventListener("mousemove", (e) => {
@@ -133,7 +143,7 @@ export class LevelEditor {
     this.save();
   }
   save(): void {
-    localStorage.setItem("debugLevel", JSON.stringify(gameManager.debugLevel));
+    gameManager.saveDebugLevel();
   }
 }
 

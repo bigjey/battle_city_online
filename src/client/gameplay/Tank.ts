@@ -11,12 +11,12 @@ import {
   TANK_WIDTH,
 } from "../constants";
 import { keysPressed } from "../keyboard";
-import { SPRITES } from "../preload";
+import { Sprite, SPRITES } from "../preload";
 import {
   snapValue,
   bodyInBounds,
-  AABBIntersects,
   blocksinCluster,
+  AABBIntersects,
 } from "../utils";
 import { Block } from "./Block";
 import { Body } from "./Body";
@@ -24,55 +24,33 @@ import { Bullet } from "./Bullet";
 import { gameManager } from "./GameManager";
 
 export class Tank extends Body {
-  dir = DIR.RIGHT;
   lastShot = 0;
+  sprite: Sprite;
+  dir: DIR;
+  bullet: Bullet | null = null;
+  destroy = false;
+  ai = false;
 
-  constructor(x: number, y: number) {
+  constructor(x: number, y: number, dir: DIR = DIR.RIGHT, sprite: Sprite) {
     super(x, y, TANK_WIDTH, TANK_HEIGHT);
+
+    this.dir = dir;
+    this.sprite = sprite;
+  }
+
+  setDir(dir: DIR): void {
+    this.dir = dir;
   }
 
   update(): void {
-    // movement
-    const newPos: XY = {
-      x: this.pos.x,
-      y: this.pos.y,
-    };
-    let newDir: DIR = DIR.NONE;
-    if (keysPressed[KEYS.LEFT]) {
-      newPos.x -= MOVE_STEP;
-      this.pos.y = newPos.y = snapValue(this.pos.y);
-      newDir = DIR.LEFT;
-    } else if (keysPressed[KEYS.RIGHT]) {
-      newPos.x += MOVE_STEP;
-      this.pos.y = newPos.y = snapValue(this.pos.y);
-      newDir = DIR.RIGHT;
-    } else if (keysPressed[KEYS.UP]) {
-      newPos.y -= MOVE_STEP;
-      this.pos.x = newPos.x = snapValue(this.pos.x);
-      newDir = DIR.UP;
-    } else if (keysPressed[KEYS.DOWN]) {
-      newPos.y += MOVE_STEP;
-      this.pos.x = newPos.x = snapValue(this.pos.x);
-      newDir = DIR.DOWN;
-    }
-    if (newDir !== DIR.NONE) {
-      this.dir = newDir;
-
-      if (this.move(newPos)) {
-        this.pos = newPos;
-      }
-    }
-
-    // shooting
-    if (
-      (!this.lastShot || Date.now() - this.lastShot >= SHOOT_COLDOWN) &&
-      keysPressed[KEYS.SHOOT]
-    ) {
-      this.shoot();
-    }
+    //
   }
 
   render(): void {
+    if (!this.sprite || !this.sprite.img) {
+      return;
+    }
+
     const x = this.pos.x + this.size.x / 2;
     const y = this.pos.y + this.size.y / 2;
     gameManager.ctx.save();
@@ -80,7 +58,7 @@ export class Tank extends Body {
     gameManager.ctx.rotate((Math.PI / 2) * this.dir);
     gameManager.ctx.translate(-x, -y);
     gameManager.ctx.drawImage(
-      SPRITES.player_1.img as CanvasImageSource,
+      this.sprite.img as CanvasImageSource,
       this.pos.x,
       this.pos.y
     );
@@ -96,7 +74,12 @@ export class Tank extends Body {
 
     for (const block of blocks) {
       if (!block.isWalkable) {
-        console.log("cant walk");
+        return false;
+      }
+    }
+
+    for (const tank of gameManager.tanks) {
+      if (tank !== this && AABBIntersects(tank, newBody)) {
         return false;
       }
     }
@@ -104,13 +87,14 @@ export class Tank extends Body {
     return true;
   }
   shoot(): void {
-    gameManager.bullets.push(
-      new Bullet(
-        this.center.x - BULLET_SIZE / 2,
-        this.center.y - BULLET_SIZE / 2,
-        this.dir
-      )
+    const bullet = new Bullet(
+      this,
+      this.center.x - BULLET_SIZE / 2,
+      this.center.y - BULLET_SIZE / 2,
+      this.dir
     );
+    this.bullet = bullet;
+    gameManager.bullets.push(bullet);
     this.lastShot = Date.now();
   }
   overlappingBlocks(body: Body): Block[] {
@@ -129,9 +113,6 @@ export class Tank extends Body {
         }
       }
     }
-
-    console.log(lCluster, rCluster);
-    console.log(tCluster, bCluster);
 
     return items;
   }

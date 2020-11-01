@@ -194,6 +194,10 @@ module.exports = "/tree_2.7a696bcc.png";
 module.exports = "/tree_3.126f9c2a.png";
 },{}],"../assets/tree_4.png":[function(require,module,exports) {
 module.exports = "/tree_4.4d685705.png";
+},{}],"../assets/base.png":[function(require,module,exports) {
+module.exports = "/base.7dec1a26.png";
+},{}],"../assets/base_destroyed.png":[function(require,module,exports) {
+module.exports = "/base_destroyed.f892f6c3.png";
 },{}],"../assets/water_1.png":[function(require,module,exports) {
 module.exports = "/water_1.de305b67.png";
 },{}],"../assets/water_2.png":[function(require,module,exports) {
@@ -202,6 +206,30 @@ module.exports = "/water_2.235c5358.png";
 module.exports = "/water_3.ba0dd19c.png";
 },{}],"../assets/water_4.png":[function(require,module,exports) {
 module.exports = "/water_4.4ca4ffaf.png";
+},{}],"../assets/ai_tank_1.png":[function(require,module,exports) {
+module.exports = "/ai_tank_1.95446adb.png";
+},{}],"../assets/ai_tank_2.png":[function(require,module,exports) {
+module.exports = "/ai_tank_2.1a6d9e9a.png";
+},{}],"../assets/ai_tank_3.png":[function(require,module,exports) {
+module.exports = "/ai_tank_3.a13b99d5.png";
+},{}],"../assets/ai_tank_4.png":[function(require,module,exports) {
+module.exports = "/ai_tank_4.6bfbbdaf.png";
+},{}],"../assets/ai_tank_5.png":[function(require,module,exports) {
+module.exports = "/ai_tank_5.6f165c4a.png";
+},{}],"../assets/ai_tank_6.png":[function(require,module,exports) {
+module.exports = "/ai_tank_6.416a51cb.png";
+},{}],"../assets/ai_tank_7.png":[function(require,module,exports) {
+module.exports = "/ai_tank_7.473153a0.png";
+},{}],"../assets/explosion_small_1.png":[function(require,module,exports) {
+module.exports = "/explosion_small_1.34da010a.png";
+},{}],"../assets/explosion_small_2.png":[function(require,module,exports) {
+module.exports = "/explosion_small_2.d2817b1d.png";
+},{}],"../assets/explosion_small_3.png":[function(require,module,exports) {
+module.exports = "/explosion_small_3.1010f521.png";
+},{}],"../assets/explosion_big_1.png":[function(require,module,exports) {
+module.exports = "/explosion_big_1.2318ce8a.png";
+},{}],"../assets/explosion_big_2.png":[function(require,module,exports) {
+module.exports = "/explosion_big_2.12f64935.png";
 },{}],"preload.ts":[function(require,module,exports) {
 "use strict";
 
@@ -240,8 +268,11 @@ var tree_2_png_1 = __importDefault(require("../assets/tree_2.png"));
 
 var tree_3_png_1 = __importDefault(require("../assets/tree_3.png"));
 
-var tree_4_png_1 = __importDefault(require("../assets/tree_4.png")); // import BaseImage from "../assets/base.png";
+var tree_4_png_1 = __importDefault(require("../assets/tree_4.png"));
 
+var base_png_1 = __importDefault(require("../assets/base.png"));
+
+var base_destroyed_png_1 = __importDefault(require("../assets/base_destroyed.png"));
 
 var water_1_png_1 = __importDefault(require("../assets/water_1.png"));
 
@@ -250,6 +281,30 @@ var water_2_png_1 = __importDefault(require("../assets/water_2.png"));
 var water_3_png_1 = __importDefault(require("../assets/water_3.png"));
 
 var water_4_png_1 = __importDefault(require("../assets/water_4.png"));
+
+var ai_tank_1_png_1 = __importDefault(require("../assets/ai_tank_1.png"));
+
+var ai_tank_2_png_1 = __importDefault(require("../assets/ai_tank_2.png"));
+
+var ai_tank_3_png_1 = __importDefault(require("../assets/ai_tank_3.png"));
+
+var ai_tank_4_png_1 = __importDefault(require("../assets/ai_tank_4.png"));
+
+var ai_tank_5_png_1 = __importDefault(require("../assets/ai_tank_5.png"));
+
+var ai_tank_6_png_1 = __importDefault(require("../assets/ai_tank_6.png"));
+
+var ai_tank_7_png_1 = __importDefault(require("../assets/ai_tank_7.png"));
+
+var explosion_small_1_png_1 = __importDefault(require("../assets/explosion_small_1.png"));
+
+var explosion_small_2_png_1 = __importDefault(require("../assets/explosion_small_2.png"));
+
+var explosion_small_3_png_1 = __importDefault(require("../assets/explosion_small_3.png"));
+
+var explosion_big_1_png_1 = __importDefault(require("../assets/explosion_big_1.png"));
+
+var explosion_big_2_png_1 = __importDefault(require("../assets/explosion_big_2.png"));
 
 exports.SPRITES = {
   player_1: {
@@ -302,6 +357,48 @@ exports.SPRITES = {
   },
   water_4: {
     file: water_4_png_1.default
+  },
+  ai_tank_1: {
+    file: ai_tank_1_png_1.default
+  },
+  ai_tank_2: {
+    file: ai_tank_2_png_1.default
+  },
+  ai_tank_3: {
+    file: ai_tank_3_png_1.default
+  },
+  ai_tank_4: {
+    file: ai_tank_4_png_1.default
+  },
+  ai_tank_5: {
+    file: ai_tank_5_png_1.default
+  },
+  ai_tank_6: {
+    file: ai_tank_6_png_1.default
+  },
+  ai_tank_7: {
+    file: ai_tank_7_png_1.default
+  },
+  base: {
+    file: base_png_1.default
+  },
+  base_destroyed: {
+    file: base_destroyed_png_1.default
+  },
+  explosion_small_1: {
+    file: explosion_small_1_png_1.default
+  },
+  explosion_small_2: {
+    file: explosion_small_2_png_1.default
+  },
+  explosion_small_3: {
+    file: explosion_small_3_png_1.default
+  },
+  explosion_big_1: {
+    file: explosion_big_1_png_1.default
+  },
+  explosion_big_2: {
+    file: explosion_big_2_png_1.default
   }
 };
 
@@ -322,7 +419,7 @@ function preloadAssets() {
 }
 
 exports.preloadAssets = preloadAssets;
-},{"../assets/player_1.png":"../assets/player_1.png","../assets/brick_1.png":"../assets/brick_1.png","../assets/brick_2.png":"../assets/brick_2.png","../assets/brick_3.png":"../assets/brick_3.png","../assets/brick_4.png":"../assets/brick_4.png","../assets/stone_1.png":"../assets/stone_1.png","../assets/stone_2.png":"../assets/stone_2.png","../assets/stone_3.png":"../assets/stone_3.png","../assets/stone_4.png":"../assets/stone_4.png","../assets/tree_1.png":"../assets/tree_1.png","../assets/tree_2.png":"../assets/tree_2.png","../assets/tree_3.png":"../assets/tree_3.png","../assets/tree_4.png":"../assets/tree_4.png","../assets/water_1.png":"../assets/water_1.png","../assets/water_2.png":"../assets/water_2.png","../assets/water_3.png":"../assets/water_3.png","../assets/water_4.png":"../assets/water_4.png"}],"gameplay/Body.ts":[function(require,module,exports) {
+},{"../assets/player_1.png":"../assets/player_1.png","../assets/brick_1.png":"../assets/brick_1.png","../assets/brick_2.png":"../assets/brick_2.png","../assets/brick_3.png":"../assets/brick_3.png","../assets/brick_4.png":"../assets/brick_4.png","../assets/stone_1.png":"../assets/stone_1.png","../assets/stone_2.png":"../assets/stone_2.png","../assets/stone_3.png":"../assets/stone_3.png","../assets/stone_4.png":"../assets/stone_4.png","../assets/tree_1.png":"../assets/tree_1.png","../assets/tree_2.png":"../assets/tree_2.png","../assets/tree_3.png":"../assets/tree_3.png","../assets/tree_4.png":"../assets/tree_4.png","../assets/base.png":"../assets/base.png","../assets/base_destroyed.png":"../assets/base_destroyed.png","../assets/water_1.png":"../assets/water_1.png","../assets/water_2.png":"../assets/water_2.png","../assets/water_3.png":"../assets/water_3.png","../assets/water_4.png":"../assets/water_4.png","../assets/ai_tank_1.png":"../assets/ai_tank_1.png","../assets/ai_tank_2.png":"../assets/ai_tank_2.png","../assets/ai_tank_3.png":"../assets/ai_tank_3.png","../assets/ai_tank_4.png":"../assets/ai_tank_4.png","../assets/ai_tank_5.png":"../assets/ai_tank_5.png","../assets/ai_tank_6.png":"../assets/ai_tank_6.png","../assets/ai_tank_7.png":"../assets/ai_tank_7.png","../assets/explosion_small_1.png":"../assets/explosion_small_1.png","../assets/explosion_small_2.png":"../assets/explosion_small_2.png","../assets/explosion_small_3.png":"../assets/explosion_small_3.png","../assets/explosion_big_1.png":"../assets/explosion_big_1.png","../assets/explosion_big_2.png":"../assets/explosion_big_2.png"}],"gameplay/Body.ts":[function(require,module,exports) {
 "use strict";
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -497,7 +594,7 @@ exports.Block = Block;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.blocksinCluster = exports.buildCluster = exports.renderCluster = exports.renderBlock = exports.bodyIsVisible = exports.bodyInBounds = exports.blockIndexInBounds = exports.snapValue = exports.AABBIntersects = void 0;
+exports.randomInt = exports.blocksinCluster = exports.buildCluster = exports.renderCluster = exports.renderBlock = exports.bodyIsVisible = exports.bodyInBounds = exports.blockIndexInBounds = exports.snapValue = exports.AABBIntersects = void 0;
 
 var constants_1 = require("./constants");
 
@@ -510,7 +607,18 @@ var preload_1 = require("./preload");
 var MOVEMENT_SNAP_VALUE = constants_1.BLOCK_SIZE * 2;
 
 function AABBIntersects(A, B) {
-  return !(A.l >= B.r || B.l >= A.r || A.t >= B.b || B.t >= A.b);
+  // const dx = A.pos.x - B.pos.x;
+  // const px = A.size.x / 2 + B.size.x / 2 - Math.abs(dx);
+  // if (px <= 0) {
+  //   return false;
+  // }
+  // const dy = A.pos.y - B.pos.y;
+  // const py = A.size.y / 2 + B.size.y / 2 - Math.abs(dy);
+  // if (py <= 0) {
+  //   return false;
+  // }
+  // return true;
+  return !(A.r <= B.l || A.l >= B.r || A.t >= B.b || A.b <= B.t);
 }
 
 exports.AABBIntersects = AABBIntersects;
@@ -581,12 +689,12 @@ function renderCluster(type, clusterX, clusterY) {
 
 exports.renderCluster = renderCluster;
 
-function buildCluster(blockType, clusterX, clusterY) {
+function buildCluster(gameManager, blockType, clusterX, clusterY) {
   for (var yOffset = 0; yOffset < constants_1.CLUSTER_SIZE; yOffset++) {
     for (var xOffset = 0; xOffset < constants_1.CLUSTER_SIZE; xOffset++) {
       var blockX = clusterX * constants_1.CLUSTER_SIZE + xOffset;
       var blockY = clusterY * constants_1.CLUSTER_SIZE + yOffset;
-      GameManager_1.gameManager.blocks[blockY][blockX] = new Block_1.Block(blockX, blockY, blockType);
+      gameManager.blocks[blockY][blockX] = new Block_1.Block(blockX, blockY, blockType);
     }
   }
 }
@@ -612,22 +720,107 @@ function blocksinCluster(clusterX, clusterY) {
 }
 
 exports.blocksinCluster = blocksinCluster;
-},{"./constants":"constants.ts","./gameplay/Block":"gameplay/Block.ts","./gameplay/GameManager":"gameplay/GameManager.ts","./preload":"preload.ts"}],"gameplay/GameManager.ts":[function(require,module,exports) {
+
+function randomInt() {
+  var min = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+  var max = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Number.MAX_SAFE_INTEGER;
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+}
+
+exports.randomInt = randomInt;
+},{"./constants":"constants.ts","./gameplay/Block":"gameplay/Block.ts","./gameplay/GameManager":"gameplay/GameManager.ts","./preload":"preload.ts"}],"gameplay/Base.ts":[function(require,module,exports) {
 "use strict";
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Base = void 0;
+
+var constants_1 = require("../constants");
+
+var preload_1 = require("../preload");
+
+var Body_1 = require("./Body");
+
+var GameManager_1 = require("./GameManager");
+
+var baseSprite = preload_1.SPRITES["base"];
+var baseDestroyedSprite = preload_1.SPRITES["base_destroyed"];
+
+var Base = /*#__PURE__*/function (_Body_1$Body) {
+  _inherits(Base, _Body_1$Body);
+
+  var _super = _createSuper(Base);
+
+  function Base(x, y) {
+    var _this;
+
+    _classCallCheck(this, Base);
+
+    _this = _super.call(this, x, y, constants_1.TANK_WIDTH, constants_1.TANK_HEIGHT);
+    _this.isDestroyed = false;
+    return _this;
+  }
+
+  _createClass(Base, [{
+    key: "render",
+    value: function render() {
+      var sprite = this.isDestroyed ? baseDestroyedSprite : baseSprite;
+      GameManager_1.gameManager.ctx.drawImage(sprite.img, this.pos.x, this.pos.y);
+    }
+  }, {
+    key: "destroy",
+    value: function destroy() {
+      this.isDestroyed = true;
+    }
+  }]);
+
+  return Base;
+}(Body_1.Body);
+
+exports.Base = Base;
+},{"../constants":"constants.ts","../preload":"preload.ts","./Body":"gameplay/Body.ts","./GameManager":"gameplay/GameManager.ts"}],"gameplay/Explosion.ts":[function(require,module,exports) {
+"use strict";
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -638,110 +831,143 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.gameManager = exports.GameManager = void 0;
+exports.ExplosionBig = exports.ExplosionSmall = exports.Explosion = void 0;
 
-var constants_1 = require("../constants");
+var preload_1 = require("../preload");
 
-var utils_1 = require("../utils");
+var GameManager_1 = require("./GameManager");
 
-var Tank_1 = require("./Tank");
+var EXPLOSION_INTERVAL = 100;
+var EXPLOSION_BIG_INTERVAL = 200;
 
-var canvas = document.createElement("canvas");
-document.body.appendChild(canvas);
-canvas.width = constants_1.CANVAS_WIDTH;
-canvas.height = constants_1.CANVAS_HEIGHT;
+var Explosion = /*#__PURE__*/function () {
+  function Explosion(x, y) {
+    _classCallCheck(this, Explosion);
 
-var GameManager = /*#__PURE__*/function () {
-  function GameManager(canvas) {
-    _classCallCheck(this, GameManager);
-
-    this.mode = constants_1.GLOBAL_MODE.EDIT_TEST_LEVEL;
-    this.player1 = null;
-    this.blocks = [];
-    this.bullets = [];
-    this.debugLevel = [];
-    this.canvas = canvas;
-    this.ctx = canvas.getContext("2d");
-    this.restoreDebugLevelData();
+    this.startTime = 0;
+    this.x = x;
+    this.y = y;
   }
 
-  _createClass(GameManager, [{
-    key: "setMode",
-    value: function setMode(mode) {
-      this.mode = mode;
+  _createClass(Explosion, [{
+    key: "render",
+    value: function render() {//
+    }
+  }, {
+    key: "update",
+    value: function update() {//
+    }
+  }]);
 
-      switch (this.mode) {
-        case constants_1.GLOBAL_MODE.DEBUG_TEST_LEVEL:
-          this.buildDebugLevel();
-          this.player1 = new Tank_1.Tank(0, 0);
-          break;
+  return Explosion;
+}();
+
+exports.Explosion = Explosion;
+
+var ExplosionSmall = /*#__PURE__*/function (_Explosion) {
+  _inherits(ExplosionSmall, _Explosion);
+
+  var _super = _createSuper(ExplosionSmall);
+
+  function ExplosionSmall(x, y) {
+    var _this;
+
+    _classCallCheck(this, ExplosionSmall);
+
+    _this = _super.call(this, x, y);
+    _this.sprites = [preload_1.SPRITES["explosion_small_1"], preload_1.SPRITES["explosion_small_2"], preload_1.SPRITES["explosion_small_3"]];
+    _this.startTime = Date.now();
+    return _this;
+  }
+
+  _createClass(ExplosionSmall, [{
+    key: "update",
+    value: function update() {
+      var now = Date.now();
+
+      if (now - this.startTime > EXPLOSION_INTERVAL * 5) {
+        GameManager_1.gameManager.removeExplosion(this);
       }
     }
   }, {
-    key: "restoreDebugLevelData",
-    value: function restoreDebugLevelData() {
-      var data = localStorage.getItem("debugLevel");
-
-      if (data) {
-        try {
-          this.debugLevel = JSON.parse(data);
-        } catch (e) {//
-        }
-      }
-
-      if (!this.debugLevel.length) {
-        this.debugLevel = new Array(52 / constants_1.CLUSTER_SIZE).fill(null).map(function () {
-          return new Array(52 / constants_1.CLUSTER_SIZE).fill(null);
-        });
-      }
+    key: "render",
+    value: function render() {
+      GameManager_1.gameManager.ctx.drawImage(this.sprites[this.spriteIndex].img, this.x - 16, this.y - 16);
     }
   }, {
-    key: "buildDebugLevel",
-    value: function buildDebugLevel() {
-      var _iterator = _createForOfIteratorHelper(this.debugLevel.entries()),
-          _step;
+    key: "spriteIndex",
+    get: function get() {
+      var now = Date.now();
 
-      try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var _step$value = _slicedToArray(_step.value, 2),
-              clusterY = _step$value[0],
-              row = _step$value[1];
-
-          var _iterator2 = _createForOfIteratorHelper(row.entries()),
-              _step2;
-
-          try {
-            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-              var _step2$value = _slicedToArray(_step2.value, 2),
-                  clusterX = _step2$value[0],
-                  type = _step2$value[1];
-
-              if (type !== null) {
-                utils_1.buildCluster(type, clusterX, clusterY);
-              }
-            }
-          } catch (err) {
-            _iterator2.e(err);
-          } finally {
-            _iterator2.f();
-          }
-        }
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
+      if (now - this.startTime < EXPLOSION_INTERVAL) {
+        return 0;
+      } else if (now - this.startTime < EXPLOSION_INTERVAL * 2) {
+        return 1;
+      } else if (now - this.startTime < EXPLOSION_INTERVAL * 3) {
+        return 2;
+      } else if (now - this.startTime < EXPLOSION_INTERVAL * 4) {
+        return 1;
+      } else {
+        return 0;
       }
     }
   }]);
 
-  return GameManager;
-}();
+  return ExplosionSmall;
+}(Explosion);
 
-exports.GameManager = GameManager;
-var instance = new GameManager(canvas);
-exports.gameManager = instance;
-window.gameManager = instance;
-},{"../constants":"constants.ts","../utils":"utils.ts","./Tank":"gameplay/Tank.ts"}],"keyboard.ts":[function(require,module,exports) {
+exports.ExplosionSmall = ExplosionSmall;
+
+var ExplosionBig = /*#__PURE__*/function (_Explosion2) {
+  _inherits(ExplosionBig, _Explosion2);
+
+  var _super2 = _createSuper(ExplosionBig);
+
+  function ExplosionBig(x, y) {
+    var _this2;
+
+    _classCallCheck(this, ExplosionBig);
+
+    _this2 = _super2.call(this, x, y);
+    _this2.sprites = [preload_1.SPRITES["explosion_big_1"], preload_1.SPRITES["explosion_big_2"]];
+    _this2.startTime = Date.now();
+    return _this2;
+  }
+
+  _createClass(ExplosionBig, [{
+    key: "update",
+    value: function update() {
+      var now = Date.now();
+
+      if (now - this.startTime > EXPLOSION_BIG_INTERVAL * 3) {
+        GameManager_1.gameManager.removeExplosion(this);
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      GameManager_1.gameManager.ctx.drawImage(this.sprites[this.spriteIndex].img, this.x - 32, this.y - 32);
+    }
+  }, {
+    key: "spriteIndex",
+    get: function get() {
+      var now = Date.now();
+
+      if (now - this.startTime < EXPLOSION_BIG_INTERVAL) {
+        return 0;
+      } else if (now - this.startTime < EXPLOSION_BIG_INTERVAL * 2) {
+        return 1;
+      } else {
+        return 0;
+      }
+    }
+  }]);
+
+  return ExplosionBig;
+}(Explosion);
+
+exports.ExplosionBig = ExplosionBig;
+},{"../preload":"preload.ts","./GameManager":"gameplay/GameManager.ts"}],"keyboard.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -822,25 +1048,31 @@ var Body_1 = require("./Body");
 
 var GameManager_1 = require("./GameManager");
 
+var Explosion_1 = require("./Explosion");
+
 var Bullet = /*#__PURE__*/function (_Body_1$Body) {
   _inherits(Bullet, _Body_1$Body);
 
   var _super = _createSuper(Bullet);
 
-  function Bullet(x, y, dir) {
+  function Bullet(tank, x, y, dir) {
     var _this;
 
     _classCallCheck(this, Bullet);
 
     _this = _super.call(this, x, y, constants_1.BULLET_SIZE, constants_1.BULLET_SIZE);
     _this.dir = constants_1.DIR.NONE;
+    _this.destroy = false;
     _this.dir = dir;
+    _this.tank = tank;
     return _this;
   }
 
   _createClass(Bullet, [{
     key: "update",
     value: function update() {
+      var destroyBullet = false;
+
       switch (this.dir) {
         case constants_1.DIR.LEFT:
           this.pos.x -= constants_1.BULLET_SPEED;
@@ -887,18 +1119,79 @@ var Bullet = /*#__PURE__*/function (_Body_1$Body) {
         }
 
         if (hit) {
-          GameManager_1.gameManager.bullets.splice(GameManager_1.gameManager.bullets.indexOf(this), 1);
+          destroyBullet = true;
+        }
+      } else if (utils_1.AABBIntersects(this, GameManager_1.gameManager.base)) {
+        if (!GameManager_1.gameManager.base.isDestroyed) {
+          GameManager_1.gameManager.base.destroy();
+          GameManager_1.gameManager.explosions.push(new Explosion_1.ExplosionBig(GameManager_1.gameManager.base.center.x, GameManager_1.gameManager.base.center.y));
+          destroyBullet = true;
+        }
+      } else {
+        var _iterator2 = _createForOfIteratorHelper(GameManager_1.gameManager.tanks),
+            _step2;
+
+        try {
+          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+            var tank = _step2.value;
+
+            if (tank === this.tank) {
+              continue;
+            }
+
+            if (this.tank.ai === tank.ai) {
+              continue;
+            }
+
+            if (utils_1.AABBIntersects(tank, this)) {
+              destroyBullet = true;
+              tank.destroy = true;
+            }
+          }
+        } catch (err) {
+          _iterator2.e(err);
+        } finally {
+          _iterator2.f();
+        }
+
+        var _iterator3 = _createForOfIteratorHelper(GameManager_1.gameManager.bullets),
+            _step3;
+
+        try {
+          for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+            var bullet = _step3.value;
+
+            if (bullet.tank === this.tank) {
+              continue;
+            }
+
+            if (bullet.tank.ai === this.tank.ai) {
+              continue;
+            }
+
+            if (utils_1.AABBIntersects(bullet, this)) {
+              destroyBullet = true;
+            }
+          }
+        } catch (err) {
+          _iterator3.e(err);
+        } finally {
+          _iterator3.f();
         }
       }
 
       if (!utils_1.bodyIsVisible(this)) {
-        GameManager_1.gameManager.bullets.splice(GameManager_1.gameManager.bullets.indexOf(this), 1);
+        destroyBullet = true;
+      }
+
+      if (destroyBullet) {
+        this.destroy = true;
       }
     }
   }, {
     key: "render",
     value: function render() {
-      GameManager_1.gameManager.ctx.fillStyle = "#fff";
+      GameManager_1.gameManager.ctx.fillStyle = "#ff7e1f";
       GameManager_1.gameManager.ctx.fillRect(this.pos.x, this.pos.y, constants_1.BULLET_SIZE, constants_1.BULLET_SIZE);
     }
   }, {
@@ -964,17 +1257,7 @@ var Bullet = /*#__PURE__*/function (_Body_1$Body) {
         if (utils_1.blockIndexInBounds(pos4.x, pos4.y) && GameManager_1.gameManager.blocks[pos4.y][pos4.x]) {
           items.push(GameManager_1.gameManager.blocks[pos4.y][pos4.x]);
         }
-      } // for (let x = lPos; x < lPos + radius; x++) {
-      //   for (let y = tPos; y < tPos + radius; y++) {
-      //     if (!blockIndexInBounds(x, y)) {
-      //       continue;
-      //     }
-      //     if (gameManager.blocks[y][x]) {
-      //       items.push(gameManager.blocks[y][x] as Block);
-      //     }
-      //   }
-      // }
-
+      }
 
       return items;
     }
@@ -984,7 +1267,7 @@ var Bullet = /*#__PURE__*/function (_Body_1$Body) {
 }(Body_1.Body);
 
 exports.Bullet = Bullet;
-},{"../constants":"constants.ts","../utils":"utils.ts","./Body":"gameplay/Body.ts","./GameManager":"gameplay/GameManager.ts"}],"gameplay/Tank.ts":[function(require,module,exports) {
+},{"../constants":"constants.ts","../utils":"utils.ts","./Body":"gameplay/Body.ts","./GameManager":"gameplay/GameManager.ts","./Explosion":"gameplay/Explosion.ts"}],"gameplay/Tank.ts":[function(require,module,exports) {
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1022,10 +1305,6 @@ exports.Tank = void 0;
 
 var constants_1 = require("../constants");
 
-var keyboard_1 = require("../keyboard");
-
-var preload_1 = require("../preload");
-
 var utils_1 = require("../utils");
 
 var Body_1 = require("./Body");
@@ -1042,18 +1321,196 @@ var Tank = /*#__PURE__*/function (_Body_1$Body) {
   function Tank(x, y) {
     var _this;
 
+    var dir = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : constants_1.DIR.RIGHT;
+    var sprite = arguments.length > 3 ? arguments[3] : undefined;
+
     _classCallCheck(this, Tank);
 
     _this = _super.call(this, x, y, constants_1.TANK_WIDTH, constants_1.TANK_HEIGHT);
-    _this.dir = constants_1.DIR.RIGHT;
     _this.lastShot = 0;
+    _this.bullet = null;
+    _this.destroy = false;
+    _this.ai = false;
+    _this.dir = dir;
+    _this.sprite = sprite;
     return _this;
   }
 
   _createClass(Tank, [{
+    key: "setDir",
+    value: function setDir(dir) {
+      this.dir = dir;
+    }
+  }, {
+    key: "update",
+    value: function update() {//
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      if (!this.sprite || !this.sprite.img) {
+        return;
+      }
+
+      var x = this.pos.x + this.size.x / 2;
+      var y = this.pos.y + this.size.y / 2;
+      GameManager_1.gameManager.ctx.save();
+      GameManager_1.gameManager.ctx.translate(x, y);
+      GameManager_1.gameManager.ctx.rotate(Math.PI / 2 * this.dir);
+      GameManager_1.gameManager.ctx.translate(-x, -y);
+      GameManager_1.gameManager.ctx.drawImage(this.sprite.img, this.pos.x, this.pos.y);
+      GameManager_1.gameManager.ctx.restore();
+    }
+  }, {
+    key: "move",
+    value: function move(newPos) {
+      var newBody = new Body_1.Body(newPos.x, newPos.y, constants_1.TANK_WIDTH, constants_1.TANK_WIDTH);
+
+      if (!utils_1.bodyInBounds(newBody)) {
+        return false;
+      }
+
+      var blocks = this.overlappingBlocks(newBody);
+
+      var _iterator = _createForOfIteratorHelper(blocks),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var block = _step.value;
+
+          if (!block.isWalkable) {
+            return false;
+          }
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      var _iterator2 = _createForOfIteratorHelper(GameManager_1.gameManager.tanks),
+          _step2;
+
+      try {
+        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+          var tank = _step2.value;
+
+          if (tank !== this && utils_1.AABBIntersects(tank, newBody)) {
+            return false;
+          }
+        }
+      } catch (err) {
+        _iterator2.e(err);
+      } finally {
+        _iterator2.f();
+      }
+
+      return true;
+    }
+  }, {
+    key: "shoot",
+    value: function shoot() {
+      var bullet = new Bullet_1.Bullet(this, this.center.x - constants_1.BULLET_SIZE / 2, this.center.y - constants_1.BULLET_SIZE / 2, this.dir);
+      this.bullet = bullet;
+      GameManager_1.gameManager.bullets.push(bullet);
+      this.lastShot = Date.now();
+    }
+  }, {
+    key: "overlappingBlocks",
+    value: function overlappingBlocks(body) {
+      var items = [];
+      var res = constants_1.BLOCK_SIZE * constants_1.CLUSTER_SIZE;
+      var lCluster = Math.floor(body.l / res);
+      var rCluster = Math.ceil(body.r / res);
+      var tCluster = Math.floor(body.t / res);
+      var bCluster = Math.ceil(body.b / res);
+
+      for (var clusterY = tCluster; clusterY < bCluster; clusterY++) {
+        for (var clusterX = lCluster; clusterX < rCluster; clusterX++) {
+          var _iterator3 = _createForOfIteratorHelper(utils_1.blocksinCluster(clusterX, clusterY)),
+              _step3;
+
+          try {
+            for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+              var block = _step3.value;
+              items.push(block);
+            }
+          } catch (err) {
+            _iterator3.e(err);
+          } finally {
+            _iterator3.f();
+          }
+        }
+      }
+
+      return items;
+    }
+  }]);
+
+  return Tank;
+}(Body_1.Body);
+
+exports.Tank = Tank;
+},{"../constants":"constants.ts","../utils":"utils.ts","./Body":"gameplay/Body.ts","./Bullet":"gameplay/Bullet.ts","./GameManager":"gameplay/GameManager.ts"}],"gameplay/PlayerTank.ts":[function(require,module,exports) {
+"use strict";
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.PlayerTank = void 0;
+
+var constants_1 = require("../constants");
+
+var keyboard_1 = require("../keyboard");
+
+var preload_1 = require("../preload");
+
+var utils_1 = require("../utils");
+
+var Tank_1 = require("./Tank");
+
+var PlayerTank = /*#__PURE__*/function (_Tank_1$Tank) {
+  _inherits(PlayerTank, _Tank_1$Tank);
+
+  var _super = _createSuper(PlayerTank);
+
+  function PlayerTank(x, y, dir) {
+    _classCallCheck(this, PlayerTank);
+
+    return _super.call(this, x, y, dir, preload_1.SPRITES.player_1);
+  }
+
+  _createClass(PlayerTank, [{
     key: "update",
     value: function update() {
       // movement
+      var prevPos = {
+        x: this.pos.x,
+        y: this.pos.y
+      };
       var newPos = {
         x: this.pos.x,
         y: this.pos.y
@@ -1079,86 +1536,178 @@ var Tank = /*#__PURE__*/function (_Body_1$Body) {
       }
 
       if (newDir !== constants_1.DIR.NONE) {
-        this.dir = newDir;
+        this.setDir(newDir);
 
         if (this.move(newPos)) {
           this.pos = newPos;
+        } else {// this.pos = prevPos;
         }
       } // shooting
 
 
-      if ((!this.lastShot || Date.now() - this.lastShot >= constants_1.SHOOT_COLDOWN) && keyboard_1.keysPressed[constants_1.KEYS.SHOOT]) {
+      if (!this.bullet && (!this.lastShot || Date.now() - this.lastShot >= constants_1.SHOOT_COLDOWN) && keyboard_1.keysPressed[constants_1.KEYS.SHOOT]) {
         this.shoot();
       }
     }
-  }, {
-    key: "render",
-    value: function render() {
-      var x = this.pos.x + this.size.x / 2;
-      var y = this.pos.y + this.size.y / 2;
-      GameManager_1.gameManager.ctx.save();
-      GameManager_1.gameManager.ctx.translate(x, y);
-      GameManager_1.gameManager.ctx.rotate(Math.PI / 2 * this.dir);
-      GameManager_1.gameManager.ctx.translate(-x, -y);
-      GameManager_1.gameManager.ctx.drawImage(preload_1.SPRITES.player_1.img, this.pos.x, this.pos.y);
-      GameManager_1.gameManager.ctx.restore();
+  }]);
+
+  return PlayerTank;
+}(Tank_1.Tank);
+
+exports.PlayerTank = PlayerTank;
+},{"../constants":"constants.ts","../keyboard":"keyboard.ts","../preload":"preload.ts","../utils":"utils.ts","./Tank":"gameplay/Tank.ts"}],"gameplay/GameManager.ts":[function(require,module,exports) {
+"use strict";
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.gameManager = exports.GameManager = void 0;
+
+var constants_1 = require("../constants");
+
+var utils_1 = require("../utils");
+
+var Base_1 = require("./Base");
+
+var Explosion_1 = require("./Explosion");
+
+var PlayerTank_1 = require("./PlayerTank");
+
+var canvas = document.createElement("canvas");
+document.body.appendChild(canvas);
+canvas.width = constants_1.CANVAS_WIDTH;
+canvas.height = constants_1.CANVAS_HEIGHT;
+
+var GameManager = /*#__PURE__*/function () {
+  function GameManager(canvas) {
+    _classCallCheck(this, GameManager);
+
+    this.mode = constants_1.GLOBAL_MODE.DEBUG_TEST_LEVEL;
+    this.player1 = null;
+    this.tanks = [];
+    this.blocks = new Array(52).fill(null).map(function () {
+      return new Array(52).fill(null);
+    });
+    this.bullets = [];
+    this.explosions = [];
+    this.debugLevel = [];
+    this.canvas = canvas;
+    this.ctx = canvas.getContext("2d");
+    this.base = new Base_1.Base(192, 386);
+    this.restoreDebugLevelData();
+    this.buildDebugLevel();
+  }
+
+  _createClass(GameManager, [{
+    key: "setMode",
+    value: function setMode(mode) {
+      this.mode = mode;
+
+      switch (this.mode) {
+        case constants_1.GLOBAL_MODE.DEBUG_TEST_LEVEL:
+          this.buildDebugLevel();
+          this.tanks = [];
+          this.tanks.push(new PlayerTank_1.PlayerTank(128, 386, constants_1.DIR.UP));
+          break;
+      }
     }
   }, {
-    key: "move",
-    value: function move(newPos) {
-      var newBody = new Body_1.Body(newPos.x, newPos.y, constants_1.TANK_WIDTH, constants_1.TANK_WIDTH);
+    key: "removeBullet",
+    value: function removeBullet(bullet) {
+      this.bullets.splice(this.bullets.indexOf(bullet), 1);
+      bullet.tank.bullet = null;
+      this.explosions.push(new Explosion_1.ExplosionSmall(bullet.center.x, bullet.center.y));
+    }
+  }, {
+    key: "removeExplosion",
+    value: function removeExplosion(explosion) {
+      this.explosions.splice(this.explosions.indexOf(explosion), 1);
+    }
+  }, {
+    key: "removeTank",
+    value: function removeTank(tank) {
+      this.tanks.splice(this.tanks.indexOf(tank), 1);
+      this.explosions.push(new Explosion_1.ExplosionBig(tank.center.x, tank.center.y));
 
-      if (!utils_1.bodyInBounds(newBody)) {
-        return false;
+      if (tank instanceof PlayerTank_1.PlayerTank) {
+        this.tanks.push(new PlayerTank_1.PlayerTank(128, 386, constants_1.DIR.UP));
+      }
+    }
+  }, {
+    key: "resetDebugLevel",
+    value: function resetDebugLevel() {
+      this.debugLevel = new Array(52 / constants_1.CLUSTER_SIZE).fill(null).map(function () {
+        return new Array(52 / constants_1.CLUSTER_SIZE).fill(null);
+      });
+      this.saveDebugLevel();
+    }
+  }, {
+    key: "saveDebugLevel",
+    value: function saveDebugLevel() {
+      localStorage.setItem("debugLevel", JSON.stringify(this.debugLevel));
+    }
+  }, {
+    key: "restoreDebugLevelData",
+    value: function restoreDebugLevelData() {
+      var data = localStorage.getItem("debugLevel");
+
+      if (data) {
+        try {
+          this.debugLevel = JSON.parse(data);
+        } catch (e) {//
+        }
       }
 
-      var blocks = this.overlappingBlocks(newBody);
-
-      var _iterator = _createForOfIteratorHelper(blocks),
+      if (!this.debugLevel.length) {
+        this.debugLevel = new Array(52 / constants_1.CLUSTER_SIZE).fill(null).map(function () {
+          return new Array(52 / constants_1.CLUSTER_SIZE).fill(null);
+        });
+      }
+    }
+  }, {
+    key: "buildDebugLevel",
+    value: function buildDebugLevel() {
+      var _iterator = _createForOfIteratorHelper(this.debugLevel.entries()),
           _step;
 
       try {
         for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var block = _step.value;
+          var _step$value = _slicedToArray(_step.value, 2),
+              clusterY = _step$value[0],
+              row = _step$value[1];
 
-          if (!block.isWalkable) {
-            console.log("cant walk");
-            return false;
-          }
-        }
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
-      }
-
-      return true;
-    }
-  }, {
-    key: "shoot",
-    value: function shoot() {
-      GameManager_1.gameManager.bullets.push(new Bullet_1.Bullet(this.center.x - constants_1.BULLET_SIZE / 2, this.center.y - constants_1.BULLET_SIZE / 2, this.dir));
-      this.lastShot = Date.now();
-    }
-  }, {
-    key: "overlappingBlocks",
-    value: function overlappingBlocks(body) {
-      var items = [];
-      var res = constants_1.BLOCK_SIZE * constants_1.CLUSTER_SIZE;
-      var lCluster = Math.floor(body.l / res);
-      var rCluster = Math.ceil(body.r / res);
-      var tCluster = Math.floor(body.t / res);
-      var bCluster = Math.ceil(body.b / res);
-
-      for (var clusterY = tCluster; clusterY < bCluster; clusterY++) {
-        for (var clusterX = lCluster; clusterX < rCluster; clusterX++) {
-          var _iterator2 = _createForOfIteratorHelper(utils_1.blocksinCluster(clusterX, clusterY)),
+          var _iterator2 = _createForOfIteratorHelper(row.entries()),
               _step2;
 
           try {
             for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-              var block = _step2.value;
-              items.push(block);
+              var _step2$value = _slicedToArray(_step2.value, 2),
+                  clusterX = _step2$value[0],
+                  type = _step2$value[1];
+
+              if (type !== null) {
+                utils_1.buildCluster(this, type, clusterX, clusterY);
+              }
             }
           } catch (err) {
             _iterator2.e(err);
@@ -1166,19 +1715,22 @@ var Tank = /*#__PURE__*/function (_Body_1$Body) {
             _iterator2.f();
           }
         }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
       }
-
-      console.log(lCluster, rCluster);
-      console.log(tCluster, bCluster);
-      return items;
     }
   }]);
 
-  return Tank;
-}(Body_1.Body);
+  return GameManager;
+}();
 
-exports.Tank = Tank;
-},{"../constants":"constants.ts","../keyboard":"keyboard.ts","../preload":"preload.ts","../utils":"utils.ts","./Body":"gameplay/Body.ts","./Bullet":"gameplay/Bullet.ts","./GameManager":"gameplay/GameManager.ts"}],"level-editor.ts":[function(require,module,exports) {
+exports.GameManager = GameManager;
+var instance = new GameManager(canvas);
+exports.gameManager = instance;
+window.gameManager = instance;
+},{"../constants":"constants.ts","../utils":"utils.ts","./Base":"gameplay/Base.ts","./Explosion":"gameplay/Explosion.ts","./PlayerTank":"gameplay/PlayerTank.ts"}],"level-editor.ts":[function(require,module,exports) {
 "use strict";
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -1212,8 +1764,9 @@ var GameManager_1 = require("./gameplay/GameManager");
 
 var utils_1 = require("./utils");
 
-var $level_editor = document.querySelectorAll("#level-editor");
+var $level_editor = document.getElementById("level-editor");
 var $pallete_colors = document.querySelectorAll(".pallete__color");
+var $level_editor_clear = document.getElementById("level-editor__clear-level");
 var classnames = {
   activePaletteColor: "pallete__color--active"
 };
@@ -1250,6 +1803,10 @@ var LevelEditor = /*#__PURE__*/function () {
           $color.classList.add(classnames.activePaletteColor);
         }
       });
+    });
+    $level_editor_clear === null || $level_editor_clear === void 0 ? void 0 : $level_editor_clear.addEventListener("click", function (e) {
+      e.preventDefault();
+      GameManager_1.gameManager.resetDebugLevel();
     });
     GameManager_1.gameManager.canvas.addEventListener("mousemove", function (e) {
       var x = Math.floor(e.offsetX / RESOLUTION);
@@ -1372,7 +1929,7 @@ var LevelEditor = /*#__PURE__*/function () {
   }, {
     key: "save",
     value: function save() {
-      localStorage.setItem("debugLevel", JSON.stringify(GameManager_1.gameManager.debugLevel));
+      GameManager_1.gameManager.saveDebugLevel();
     }
   }]);
 
@@ -1383,10 +1940,154 @@ exports.LevelEditor = LevelEditor;
 var instance = new LevelEditor();
 exports.levelEditor = instance;
 window.levelEditor = instance;
-},{"./constants":"constants.ts","./gameplay/GameManager":"gameplay/GameManager.ts","./utils":"utils.ts"}],"main.ts":[function(require,module,exports) {
+},{"./constants":"constants.ts","./gameplay/GameManager":"gameplay/GameManager.ts","./utils":"utils.ts"}],"gameplay/AITank.ts":[function(require,module,exports) {
 "use strict";
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.AITank = void 0;
+
+var constants_1 = require("../constants");
+
+var preload_1 = require("../preload");
+
+var utils_1 = require("../utils");
+
+var Tank_1 = require("./Tank");
+
+var changeDirectionIntervalMin = 2000;
+var changeDirectionIntervalMax = 4000;
+var AI_MOVE_STEP = 1.5;
+
+function randomTankSprite() {
+  var tankVariant = utils_1.randomInt(1, 8);
+  var sprite = preload_1.SPRITES["ai_tank_".concat(tankVariant)];
+  return sprite;
+}
+
+var AITank = /*#__PURE__*/function (_Tank_1$Tank) {
+  _inherits(AITank, _Tank_1$Tank);
+
+  var _super = _createSuper(AITank);
+
+  function AITank(x, y, dir) {
+    var _this;
+
+    _classCallCheck(this, AITank);
+
+    _this = _super.call(this, x, y, dir, randomTankSprite());
+    _this.nextDirChange = 0;
+    _this.ai = true;
+
+    _this.scheduleNextDirChange();
+
+    return _this;
+  }
+
+  _createClass(AITank, [{
+    key: "update",
+    value: function update() {
+      var now = Date.now();
+      var prevPos = {
+        x: this.pos.x,
+        y: this.pos.y
+      };
+      var newPos = {
+        x: this.pos.x,
+        y: this.pos.y
+      };
+
+      switch (this.dir) {
+        case constants_1.DIR.LEFT:
+          newPos.x -= AI_MOVE_STEP;
+          this.pos.y = newPos.y = utils_1.snapValue(this.pos.y);
+          break;
+
+        case constants_1.DIR.RIGHT:
+          newPos.x += AI_MOVE_STEP;
+          this.pos.y = newPos.y = utils_1.snapValue(this.pos.y);
+          break;
+
+        case constants_1.DIR.UP:
+          newPos.y -= AI_MOVE_STEP;
+          this.pos.x = newPos.x = utils_1.snapValue(this.pos.x);
+          break;
+
+        case constants_1.DIR.DOWN:
+          newPos.y += AI_MOVE_STEP;
+          this.pos.x = newPos.x = utils_1.snapValue(this.pos.x);
+          break;
+      }
+
+      if (this.move(newPos)) {
+        this.pos = newPos;
+
+        if (now >= this.nextDirChange) {
+          this.setRandomDir();
+        }
+      } else {
+        // this.pos = prevPos;
+        this.setRandomDir();
+      }
+
+      if (Math.random() < 0.015) {
+        this.shoot();
+      }
+    }
+  }, {
+    key: "setRandomDir",
+    value: function setRandomDir() {
+      var dir = Math.floor(Math.random() * 4);
+      this.setDir(dir);
+      this.scheduleNextDirChange();
+    }
+  }, {
+    key: "scheduleNextDirChange",
+    value: function scheduleNextDirChange() {
+      var nextChange = utils_1.randomInt(changeDirectionIntervalMin, changeDirectionIntervalMax);
+      this.nextDirChange = Date.now() + nextChange;
+    }
+  }]);
+
+  return AITank;
+}(Tank_1.Tank);
+
+exports.AITank = AITank;
+},{"../constants":"constants.ts","../preload":"preload.ts","../utils":"utils.ts","./Tank":"gameplay/Tank.ts"}],"main.ts":[function(require,module,exports) {
+"use strict";
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
@@ -1400,46 +2101,45 @@ var constants_1 = require("./constants");
 
 var preload_1 = require("./preload");
 
-var Tank_1 = require("./gameplay/Tank");
-
 var GameManager_1 = require("./gameplay/GameManager");
 
 var level_editor_1 = require("./level-editor");
 
+var PlayerTank_1 = require("./gameplay/PlayerTank");
+
+var AITank_1 = require("./gameplay/AITank");
+
+var utils_1 = require("./utils");
+
+var Body_1 = require("./gameplay/Body");
+
+var lastSpawnTime = 0;
+var respawnSpots = [[0, 0], [190, 0], [386, 0]];
+
 function update() {
-  var _a;
-
-  (_a = GameManager_1.gameManager.player1) === null || _a === void 0 ? void 0 : _a.update();
-
-  var _iterator = _createForOfIteratorHelper(GameManager_1.gameManager.bullets),
+  var _iterator = _createForOfIteratorHelper(GameManager_1.gameManager.tanks),
       _step;
 
   try {
     for (_iterator.s(); !(_step = _iterator.n()).done;) {
-      var bullet = _step.value;
-      bullet.update();
+      var _tank = _step.value;
+
+      _tank.update();
     }
   } catch (err) {
     _iterator.e(err);
   } finally {
     _iterator.f();
   }
-}
-
-function render() {
-  var _a;
-
-  GameManager_1.gameManager.ctx.fillStyle = "#000";
-  GameManager_1.gameManager.ctx.fillRect(0, 0, constants_1.CANVAS_WIDTH, constants_1.CANVAS_HEIGHT);
-  (_a = GameManager_1.gameManager.player1) === null || _a === void 0 ? void 0 : _a.render();
 
   var _iterator2 = _createForOfIteratorHelper(GameManager_1.gameManager.bullets),
       _step2;
 
   try {
     for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-      var bullet = _step2.value;
-      bullet.render();
+      var _bullet = _step2.value;
+
+      _bullet.update();
     }
   } catch (err) {
     _iterator2.e(err);
@@ -1447,34 +2147,180 @@ function render() {
     _iterator2.f();
   }
 
-  var _iterator3 = _createForOfIteratorHelper(GameManager_1.gameManager.blocks),
+  var _iterator3 = _createForOfIteratorHelper(GameManager_1.gameManager.explosions),
       _step3;
 
   try {
     for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-      var row = _step3.value;
+      var explosion = _step3.value;
+      explosion.update();
+    }
+  } catch (err) {
+    _iterator3.e(err);
+  } finally {
+    _iterator3.f();
+  }
 
-      var _iterator4 = _createForOfIteratorHelper(row),
-          _step4;
+  var _iterator4 = _createForOfIteratorHelper(GameManager_1.gameManager.tanks),
+      _step4;
+
+  try {
+    for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+      var _tank2 = _step4.value;
+
+      if (_tank2.destroy) {
+        GameManager_1.gameManager.removeTank(_tank2);
+      }
+    }
+  } catch (err) {
+    _iterator4.e(err);
+  } finally {
+    _iterator4.f();
+  }
+
+  var _iterator5 = _createForOfIteratorHelper(GameManager_1.gameManager.bullets),
+      _step5;
+
+  try {
+    for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+      var _bullet2 = _step5.value;
+
+      if (_bullet2.destroy) {
+        GameManager_1.gameManager.removeBullet(_bullet2);
+      }
+    }
+  } catch (err) {
+    _iterator5.e(err);
+  } finally {
+    _iterator5.f();
+  }
+
+  var now = Date.now();
+
+  if (GameManager_1.gameManager.tanks.length < 4 && now - lastSpawnTime > 5000) {
+    var _respawnSpots$utils_ = _slicedToArray(respawnSpots[utils_1.randomInt(0, respawnSpots.length)], 2),
+        x = _respawnSpots$utils_[0],
+        y = _respawnSpots$utils_[1];
+
+    var body = new Body_1.Body(x, y, constants_1.TANK_WIDTH, constants_1.TANK_HEIGHT);
+    var canPlace = true;
+
+    var _iterator6 = _createForOfIteratorHelper(GameManager_1.gameManager.tanks),
+        _step6;
+
+    try {
+      for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
+        var tank = _step6.value;
+
+        if (utils_1.AABBIntersects(tank, body)) {
+          canPlace = false;
+        }
+      }
+    } catch (err) {
+      _iterator6.e(err);
+    } finally {
+      _iterator6.f();
+    }
+
+    var _iterator7 = _createForOfIteratorHelper(GameManager_1.gameManager.bullets),
+        _step7;
+
+    try {
+      for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
+        var bullet = _step7.value;
+
+        if (utils_1.AABBIntersects(bullet, body)) {
+          canPlace = false;
+        }
+      }
+    } catch (err) {
+      _iterator7.e(err);
+    } finally {
+      _iterator7.f();
+    }
+
+    if (canPlace) {
+      GameManager_1.gameManager.tanks.push(new AITank_1.AITank(x, y, constants_1.DIR.DOWN));
+      lastSpawnTime = now;
+    }
+  }
+}
+
+function render() {
+  GameManager_1.gameManager.ctx.fillStyle = "#000";
+  GameManager_1.gameManager.ctx.fillRect(0, 0, constants_1.CANVAS_WIDTH, constants_1.CANVAS_HEIGHT);
+  GameManager_1.gameManager.base.render();
+
+  var _iterator8 = _createForOfIteratorHelper(GameManager_1.gameManager.bullets),
+      _step8;
+
+  try {
+    for (_iterator8.s(); !(_step8 = _iterator8.n()).done;) {
+      var bullet = _step8.value;
+      bullet.render();
+    }
+  } catch (err) {
+    _iterator8.e(err);
+  } finally {
+    _iterator8.f();
+  }
+
+  var _iterator9 = _createForOfIteratorHelper(GameManager_1.gameManager.tanks),
+      _step9;
+
+  try {
+    for (_iterator9.s(); !(_step9 = _iterator9.n()).done;) {
+      var tank = _step9.value;
+      tank.render();
+    }
+  } catch (err) {
+    _iterator9.e(err);
+  } finally {
+    _iterator9.f();
+  }
+
+  var _iterator10 = _createForOfIteratorHelper(GameManager_1.gameManager.blocks),
+      _step10;
+
+  try {
+    for (_iterator10.s(); !(_step10 = _iterator10.n()).done;) {
+      var row = _step10.value;
+
+      var _iterator12 = _createForOfIteratorHelper(row),
+          _step12;
 
       try {
-        for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
-          var block = _step4.value;
+        for (_iterator12.s(); !(_step12 = _iterator12.n()).done;) {
+          var block = _step12.value;
 
           if (block) {
             block.render();
           }
         }
       } catch (err) {
-        _iterator4.e(err);
+        _iterator12.e(err);
       } finally {
-        _iterator4.f();
+        _iterator12.f();
       }
     }
   } catch (err) {
-    _iterator3.e(err);
+    _iterator10.e(err);
   } finally {
-    _iterator3.f();
+    _iterator10.f();
+  }
+
+  var _iterator11 = _createForOfIteratorHelper(GameManager_1.gameManager.explosions),
+      _step11;
+
+  try {
+    for (_iterator11.s(); !(_step11 = _iterator11.n()).done;) {
+      var explosion = _step11.value;
+      explosion.render();
+    }
+  } catch (err) {
+    _iterator11.e(err);
+  } finally {
+    _iterator11.f();
   }
 }
 
@@ -1506,15 +2352,9 @@ function tick() {
   window.setTimeout(tick, 1000 / 60);
 }
 
-{
-  GameManager_1.gameManager.player1 = new Tank_1.Tank(0, 0);
-  GameManager_1.gameManager.blocks = new Array(52).fill(null).map(function () {
-    return new Array(52).fill(null);
-  });
-  GameManager_1.gameManager.bullets = [];
-}
+GameManager_1.gameManager.tanks.push(new PlayerTank_1.PlayerTank(128, 386, constants_1.DIR.UP));
 preload_1.preloadAssets().then(tick);
-},{"./constants":"constants.ts","./preload":"preload.ts","./gameplay/Tank":"gameplay/Tank.ts","./gameplay/GameManager":"gameplay/GameManager.ts","./level-editor":"level-editor.ts"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./constants":"constants.ts","./preload":"preload.ts","./gameplay/GameManager":"gameplay/GameManager.ts","./level-editor":"level-editor.ts","./gameplay/PlayerTank":"gameplay/PlayerTank.ts","./gameplay/AITank":"gameplay/AITank.ts","./utils":"utils.ts","./gameplay/Body":"gameplay/Body.ts"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -1542,7 +2382,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59199" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50902" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

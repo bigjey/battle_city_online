@@ -7,13 +7,27 @@ import {
 } from "./constants";
 import { Block } from "./gameplay/Block";
 import { Body } from "./gameplay/Body";
-import { gameManager } from "./gameplay/GameManager";
+import { GameManager, gameManager } from "./gameplay/GameManager";
 import { SPRITES } from "./preload";
 
 const MOVEMENT_SNAP_VALUE = BLOCK_SIZE * 2;
 
 export function AABBIntersects(A: Body, B: Body): boolean {
-  return !(A.l >= B.r || B.l >= A.r || A.t >= B.b || B.t >= A.b);
+  // const dx = A.pos.x - B.pos.x;
+  // const px = A.size.x / 2 + B.size.x / 2 - Math.abs(dx);
+  // if (px <= 0) {
+  //   return false;
+  // }
+
+  // const dy = A.pos.y - B.pos.y;
+  // const py = A.size.y / 2 + B.size.y / 2 - Math.abs(dy);
+  // if (py <= 0) {
+  //   return false;
+  // }
+
+  // return true;
+
+  return !(A.r <= B.l || A.l >= B.r || A.t >= B.b || A.b <= B.t);
 }
 
 export function snapValue(value: number): number {
@@ -103,6 +117,7 @@ export function renderCluster(
 }
 
 export function buildCluster(
+  gameManager: GameManager,
   blockType: BlockType,
   clusterX: number,
   clusterY: number
@@ -134,4 +149,13 @@ export function blocksinCluster(clusterX: number, clusterY: number): Block[] {
   }
 
   return items;
+}
+
+export function randomInt(
+  min = 0,
+  max: number = Number.MAX_SAFE_INTEGER
+): number {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
