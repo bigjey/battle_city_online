@@ -1,0 +1,1 @@
+web: npx babel-node ./server/server.js

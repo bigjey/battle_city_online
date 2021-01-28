@@ -6,7 +6,7 @@ import {
   DIR,
   GLOBAL_MODE,
 } from "../constants";
-import { buildCluster } from "../utils";
+import { buildCluster, eventEmitter } from "../utils";
 import { Base } from "./Base";
 import { Block } from "./Block";
 import { Bullet } from "./Bullet";
@@ -16,7 +16,7 @@ import { Tank } from "./Tank";
 
 const canvas = document.createElement("canvas");
 
-document.body.appendChild(canvas);
+document.getElementById("main-window")?.appendChild(canvas);
 
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
@@ -35,7 +35,7 @@ export interface GameManager {
 }
 
 export class GameManager implements GameManager {
-  mode = GLOBAL_MODE.DEBUG_TEST_LEVEL;
+  mode = GLOBAL_MODE.EDIT_TEST_LEVEL;
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
   player1: Tank | null = null;
@@ -53,17 +53,19 @@ export class GameManager implements GameManager {
     this.ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
     this.base = new Base(192, 386);
 
-    this.restoreDebugLevelData();
     this.buildDebugLevel();
   }
 
   setMode(mode: GLOBAL_MODE): void {
     this.mode = mode;
 
+    eventEmitter.emit("set-game-mode", mode);
+
     switch (this.mode) {
       case GLOBAL_MODE.DEBUG_TEST_LEVEL:
         this.buildDebugLevel();
         this.tanks = [];
+        this.bullets = [];
         this.tanks.push(new PlayerTank(128, 386, DIR.UP));
 
         break;

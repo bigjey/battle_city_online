@@ -128,4 +128,12 @@ function tick() {
 
 gameManager.tanks.push(new PlayerTank(128, 386, DIR.UP));
 
-preloadAssets().then(tick);
+function loadLevels() {
+  return fetch("/api/levels")
+    .then((r) => r.json())
+    .then((levelNames) => {
+      levelEditor.setLevelNames(levelNames);
+    });
+}
+
+Promise.all([preloadAssets(), loadLevels()]).then(tick);

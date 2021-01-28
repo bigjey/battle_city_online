@@ -5,17 +5,27 @@ import {
   CANVAS_HEIGHT,
   CANVAS_WIDTH,
   CLUSTER_SIZE,
+  GLOBAL_MODE,
 } from "./constants";
 import { gameManager } from "./gameplay/GameManager";
-import { renderCluster } from "./utils";
+import { eventEmitter, renderCluster } from "./utils";
+
+interface ICellData {
+  x: number;
+  y: number;
+  value: Array<BlockType>;
+}
 
 const $level_editor = document.getElementById("level-editor");
+const $levels_dropdown = document.getElementById("level-selector");
 const $pallete_colors: NodeListOf<HTMLDivElement> = document.querySelectorAll(
   ".pallete__color"
 );
 const $level_editor_clear = document.getElementById(
   "level-editor__clear-level"
 );
+const $level_editor_save = document.getElementById("level-editor__save-level");
+const $level_editor_new = document.getElementById("level-editor__new-level");
 
 const classnames: { [key: string]: string } = {
   activePaletteColor: "pallete__color--active",
@@ -35,6 +45,8 @@ export class LevelEditor {
   brush: BlockType | null = null;
   hl: XY | null = null;
   mousePressed = false;
+  levelNames: string[] = [];
+  selectedLevel: string | null = null;
 
   constructor() {
     $pallete_colors.forEach(($color) => {
@@ -53,10 +65,76 @@ export class LevelEditor {
       });
     });
 
+    $level_editor_new?.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      fetch("/api/levels", {
+        method: "post",
+      })
+        .then((r) => r.json())
+        .then((data) => {
+          this.setLevelNames(data.levels);
+          this.selectLevel(data.id);
+        });
+    });
+
     $level_editor_clear?.addEventListener("click", (e) => {
       e.preventDefault();
 
       gameManager.resetDebugLevel();
+    });
+
+    $level_editor_save?.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      if (!this.selectedLevel) {
+        return;
+      }
+
+      const levelData = [];
+
+      for (const [y, row] of gameManager.debugLevel.entries()) {
+        for (const [x, type] of row.entries()) {
+          if (type !== null) {
+            levelData.push({
+              x: x,
+              y: y,
+              value: type,
+            });
+          }
+        }
+      }
+
+      fetch(`/api/levels/${this.selectedLevel}`, {
+        method: "post",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(levelData),
+      });
+    });
+
+    $levels_dropdown?.addEventListener("change", (e) => {
+      const levelName = ($levels_dropdown as HTMLSelectElement).value;
+      if (levelName) {
+        this.selectLevel(levelName);
+        fetch(`/api/levels/${levelName}`)
+          .then((r) => r.json())
+          .then((levelData) => {
+            const level = new Array(52 / CLUSTER_SIZE)
+              .fill(null)
+              .map(() => new Array(52 / CLUSTER_SIZE).fill(null));
+
+            levelData.data.forEach((cellData: ICellData) => {
+              level[cellData.y][cellData.x] = cellData.value;
+            });
+
+            gameManager.debugLevel = level;
+          });
+      } else {
+        this.selectedLevel = null;
+        gameManager.resetDebugLevel();
+      }
     });
 
     gameManager.canvas.addEventListener("mousemove", (e) => {
@@ -87,8 +165,20 @@ export class LevelEditor {
         this.paintCell({ x, y });
       }
     });
+
     gameManager.canvas.addEventListener("mouseup", () => {
       this.mousePressed = false;
+    });
+
+    eventEmitter.on("set-game-mode", (mode: GLOBAL_MODE) => {
+      switch (mode) {
+        case GLOBAL_MODE.EDIT_TEST_LEVEL:
+          ($level_editor as HTMLDivElement).style.display = "block";
+          break;
+        default:
+          ($level_editor as HTMLDivElement).style.display = "none";
+          break;
+      }
     });
   }
   render(): void {
@@ -138,12 +228,34 @@ export class LevelEditor {
     this.hl = hl;
   }
   paintCell(xy: XY): void {
+    if (!this.selectedLevel) {
+      return;
+    }
+
     gameManager.debugLevel[xy.y][xy.x] = this.brush;
 
     this.save();
   }
   save(): void {
     gameManager.saveDebugLevel();
+  }
+  setLevelNames(value: string[]): void {
+    this.levelNames = value;
+
+    if ($levels_dropdown) {
+      const levelNamesOptions =
+        `<option></option>` +
+        this.levelNames
+          .map((levelName) => `<option>${levelName}</option>`)
+          .join();
+
+      $levels_dropdown.innerHTML = levelNamesOptions;
+    }
+  }
+  selectLevel(id: string): void {
+    this.selectedLevel = id;
+    ($levels_dropdown as HTMLSelectElement).value = id;
+    gameManager.resetDebugLevel();
   }
 }
 

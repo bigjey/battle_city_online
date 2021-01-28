@@ -159,3 +159,28 @@ export function randomInt(
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
+
+class EventEmitter {
+  events: {
+    [eventName: string]: Array<(v: any) => void>;
+  } = {};
+
+  on(eventName: string, callback: (v: any) => void): () => void {
+    if (!this.events[eventName]) {
+      this.events[eventName] = [];
+    }
+    this.events[eventName].push(callback);
+
+    return () => {
+      this.events[eventName].splice(this.events[eventName].indexOf(callback));
+    };
+  }
+
+  emit(eventName: string, value: any): void {
+    this.events[eventName].forEach((callback) => {
+      callback(value);
+    });
+  }
+}
+
+export const eventEmitter = new EventEmitter();
