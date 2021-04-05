@@ -1,3 +1,4 @@
+import { IScene } from "..";
 import {
   BlockType,
   CANVAS_HEIGHT,
@@ -5,10 +6,20 @@ import {
   CLUSTER_SIZE,
   DIR,
   GLOBAL_MODE,
+  TANK_HEIGHT,
+  TANK_WIDTH,
 } from "../constants";
-import { buildCluster, eventEmitter } from "../utils";
+import mainMenuSceneInstance from "../Scenes/MainMenuScene";
+import {
+  AABBIntersects,
+  buildCluster,
+  eventEmitter,
+  randomInt,
+} from "../utils";
+import { AITank } from "./AITank";
 import { Base } from "./Base";
 import { Block } from "./Block";
+import { Body } from "./Body";
 import { Bullet } from "./Bullet";
 import { Explosion, ExplosionBig, ExplosionSmall } from "./Explosion";
 import { PlayerTank } from "./PlayerTank";
@@ -16,7 +27,7 @@ import { Tank } from "./Tank";
 
 const canvas = document.createElement("canvas");
 
-document.getElementById("main-window")?.appendChild(canvas);
+document.body.appendChild(canvas);
 
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
@@ -32,10 +43,17 @@ export interface GameManager {
   explosions: Explosion[];
   debugLevel: Array<Array<BlockType | null>>;
   base: Base;
+  currentScene: IScene | null;
 }
 
+const RESPAWN_SPOTS: number[][] = [
+  [0, 0],
+  [190, 0],
+  [386, 0],
+];
+
 export class GameManager implements GameManager {
-  mode = GLOBAL_MODE.EDIT_TEST_LEVEL;
+  mode = GLOBAL_MODE.NORMAL_GAME;
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
   player1: Tank | null = null;
@@ -47,13 +65,27 @@ export class GameManager implements GameManager {
   explosions: Explosion[] = [];
   debugLevel: Array<Array<BlockType | null>> = [];
   base: Base;
+  currentScene: IScene | null = null;
 
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
     this.ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
-    this.base = new Base(192, 386);
+    this.base = new Base(192, 382);
 
     this.buildDebugLevel();
+
+    this.onWindowResize();
+
+    window.addEventListener("resize", this.onWindowResize.bind(this));
+
+    this.setMode(GLOBAL_MODE.NORMAL_GAME);
+  }
+
+  onWindowResize(): void {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    this.canvas.width = w;
+    this.canvas.height = h;
   }
 
   setMode(mode: GLOBAL_MODE): void {
@@ -62,6 +94,10 @@ export class GameManager implements GameManager {
     eventEmitter.emit("set-game-mode", mode);
 
     switch (this.mode) {
+      case GLOBAL_MODE.NORMAL_GAME:
+        this.currentScene = mainMenuSceneInstance;
+        break;
+
       case GLOBAL_MODE.DEBUG_TEST_LEVEL:
         this.buildDebugLevel();
         this.tanks = [];
@@ -126,6 +162,33 @@ export class GameManager implements GameManager {
         }
       }
     }
+  }
+
+  addEnemyTank(): boolean {
+    const [x, y] = RESPAWN_SPOTS[randomInt(0, RESPAWN_SPOTS.length)];
+    const body = new Body(x, y, TANK_WIDTH, TANK_HEIGHT);
+
+    let canPlace = true;
+
+    for (const tank of this.tanks) {
+      if (AABBIntersects(tank, body)) {
+        canPlace = false;
+      }
+    }
+
+    for (const bullet of this.bullets) {
+      if (AABBIntersects(bullet, body)) {
+        canPlace = false;
+      }
+    }
+
+    if (canPlace) {
+      this.tanks.push(new AITank(x, y, DIR.DOWN));
+
+      return true;
+    }
+
+    return false;
   }
 }
 

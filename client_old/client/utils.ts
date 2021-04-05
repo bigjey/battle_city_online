@@ -1,3 +1,4 @@
+import { ICellData } from ".";
 import {
   BlockType,
   BLOCK_SIZE,
@@ -116,8 +117,32 @@ export function renderCluster(
   }
 }
 
+export function buildLevel(levelData): Array<Array<Block | null>> {
+  const level = new Array(52 / CLUSTER_SIZE)
+    .fill(null)
+    .map(() => new Array(52 / CLUSTER_SIZE).fill(null));
+
+  levelData.data.forEach((cellData: ICellData) => {
+    level[cellData.y][cellData.x] = cellData.value;
+  });
+
+  const blocks: Array<Array<Block | null>> = new Array(52)
+    .fill(null)
+    .map(() => new Array(52).fill(null));
+
+  for (const [clusterY, row] of level.entries()) {
+    for (const [clusterX, type] of row.entries()) {
+      if (type !== null) {
+        buildCluster(blocks, type, clusterX, clusterY);
+      }
+    }
+  }
+
+  return blocks;
+}
+
 export function buildCluster(
-  gameManager: GameManager,
+  blocks: Array<Array<Block | null>>,
   blockType: BlockType,
   clusterX: number,
   clusterY: number
@@ -127,7 +152,7 @@ export function buildCluster(
       const blockX = clusterX * CLUSTER_SIZE + xOffset;
       const blockY = clusterY * CLUSTER_SIZE + yOffset;
 
-      gameManager.blocks[blockY][blockX] = new Block(blockX, blockY, blockType);
+      blocks[blockY][blockX] = new Block(blockX, blockY, blockType);
     }
   }
 }
@@ -177,10 +202,13 @@ class EventEmitter {
   }
 
   emit(eventName: string, value: any): void {
-    this.events[eventName].forEach((callback) => {
+    this.events[eventName]?.forEach((callback) => {
       callback(value);
     });
   }
 }
 
 export const eventEmitter = new EventEmitter();
+
+export const wait = (waitTime: number): Promise<undefined> =>
+  new Promise((r) => setTimeout(r, waitTime));
