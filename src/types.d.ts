@@ -1,6 +1,7 @@
 declare module "*.png";
 
-import type { BlockType } from "./constants";
+import { Socket } from "socket.io-client";
+import type { BlockType, Command, DIR } from "./constants";
 
 export interface IXY {
   x: number;
@@ -13,11 +14,18 @@ export interface IGameManager {
     canvas: HTMLCanvasElement;
     ctx: CanvasRenderingContext2D;
   };
+  socket: Socket;
+}
+
+export interface IGameRunner {
+  tanks: Tank[];
+  getState(): ILevelState;
 }
 
 export interface IScene {
   render(): void;
   update(): void;
+  cleanup?(): void;
 }
 
 export interface ILevelState {
@@ -53,4 +61,13 @@ export interface ICellData {
   x: number;
   y: number;
   value: BlockType;
+}
+
+export interface ICommandData {
+  command: Command;
+  payload: any;
+}
+
+export interface IMoveCommandPayload {
+  dir: DIR;
 }

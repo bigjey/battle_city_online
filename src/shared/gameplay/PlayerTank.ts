@@ -7,9 +7,11 @@ import {
   TANK_SHOOT_COOLDOWN,
 } from "../../constants";
 import { Tank } from "./Tank";
+import { GameRunner } from "../GameRunner";
+import { IXY } from "../../types";
 
 export class PlayerTank extends Tank {
-  constructor(x: number, y: number, game: any, dir?: number) {
+  constructor(x: number, y: number, game: GameRunner, dir?: number) {
     super({ x, y, dir, game /* , SPRITES.player_1 */ });
   }
 

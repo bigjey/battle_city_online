@@ -1,3 +1,4 @@
+import { GameRunner } from "../GameRunner";
 import {
   BLOCK_SIZE,
   BULLET_SIZE,
@@ -21,7 +22,10 @@ export class Tank extends Body {
   destroy = false;
   ai = false;
 
-  game = null;
+  game: GameRunner;
+
+  initialPos: IXY;
+  initialDir: DIR;
 
   constructor({
     x,
@@ -31,7 +35,7 @@ export class Tank extends Body {
   }: {
     x: number;
     y: number;
-    game: any;
+    game: GameRunner;
     dir?: DIR;
   }) {
     super(x, y, TANK_SIZE, TANK_SIZE);
@@ -40,6 +44,12 @@ export class Tank extends Body {
 
     this.dir = dir;
     // this.sprite = sprite;
+
+    this.initialPos = {
+      x,
+      y,
+    };
+    this.initialDir = dir;
   }
 
   setDir(dir: DIR): void {
@@ -114,18 +124,26 @@ export class Tank extends Body {
     const tCluster = Math.floor(body.t / res);
     const bCluster = Math.ceil(body.b / res);
 
-    for (let clusterY = tCluster; clusterY < bCluster; clusterY++) {
-      for (let clusterX = lCluster; clusterX < rCluster; clusterX++) {
-        for (const block of blocksInCluster(
-          this.game.blocks,
-          clusterX,
-          clusterY
-        )) {
-          items.push(block);
+    if (this.game?.blocks) {
+      for (let clusterY = tCluster; clusterY < bCluster; clusterY++) {
+        for (let clusterX = lCluster; clusterX < rCluster; clusterX++) {
+          for (const block of blocksInCluster(
+            this.game.blocks,
+            clusterX,
+            clusterY
+          )) {
+            items.push(block);
+          }
         }
       }
     }
 
     return items;
+  }
+
+  resetPosition(): void {
+    this.pos.x = this.initialPos.x;
+    this.pos.y = this.initialPos.y;
+    this.dir = this.initialDir;
   }
 }

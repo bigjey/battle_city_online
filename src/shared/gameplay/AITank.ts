@@ -1,4 +1,5 @@
-import type { IXY } from "types";
+import { GameRunner } from "../GameRunner";
+import type { IXY } from "../../types";
 import { DIR, MOVEMENT_SNAP_VALUE } from "../../constants";
 import { randomInt } from "../../utils/random";
 import snapValue from "../../utils/snapValue";
@@ -19,7 +20,7 @@ const AI_MOVE_STEP = 1.5;
 export class AITank extends Tank {
   nextDirChange = 0;
   ai = true;
-  constructor(x: number, y: number, game: any, dir?: DIR) {
+  constructor(x: number, y: number, game: GameRunner, dir?: DIR) {
     super({ x, y, game, dir /* , randomTankSprite() */ });
 
     this.scheduleNextDirChange();

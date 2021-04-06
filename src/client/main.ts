@@ -3,13 +3,12 @@ import "./keyboard";
 import GameManager from "./GameManager";
 import mainMenuScene from "./scenes/MenuScene";
 import { GameScene } from "./scenes/GameScene";
-import { io } from "socket.io-client";
 
 const { ctx, canvas } = GameManager.renderer;
 
 function initialize() {
-  // GameManager.activeScene = mainMenuScene;
-  GameManager.activeScene = new GameScene();
+  GameManager.activeScene = mainMenuScene;
+  // GameManager.activeScene = new GameScene(1, false);
 }
 
 function update() {
@@ -30,8 +29,3 @@ function tick() {
 
 initialize();
 tick();
-
-const socket = io("http://localhost:3000", {});
-
-socket.emit("test", 123);
-socket.on("msg", console.log);

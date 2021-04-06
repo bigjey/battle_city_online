@@ -16,6 +16,9 @@ import {
   BLOCK_SIZE,
   BULLET_SIZE,
   CLUSTER_SIZE,
+  Command,
+  DIR,
+  KEYS,
   TANK_SIZE,
 } from "../../constants";
 import GameManager from "../GameManager";
@@ -29,6 +32,7 @@ export class GameScene implements IScene {
   levelId: number;
   local: boolean;
 
+  gameId: string | null = null;
   localGame: LocalGame | undefined;
   onlineGameState: ILevelState | undefined;
 
@@ -51,6 +55,11 @@ export class GameScene implements IScene {
 
   render(): void {
     const state = this.getState();
+
+    if (!state) {
+      return;
+    }
+
     ctx.fillStyle = "#555";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -72,7 +81,6 @@ export class GameScene implements IScene {
       if (block) {
         const x = i % BLOCKS_IN_ROW;
         const y = Math.floor(i / BLOCKS_IN_ROW);
-        // console.log(block, i, size, x, y);
 
         renderBlock(block.type, x, y);
       }
@@ -81,7 +89,7 @@ export class GameScene implements IScene {
     ctx.translate(-BATTLEFIELD_X, -BATTLEFIELD_Y);
   }
 
-  getState(): ILevelState {
+  getState(): ILevelState | null {
     if (this.local) {
       if (this.localGame) {
         return this.localGame.getState();
@@ -89,13 +97,43 @@ export class GameScene implements IScene {
         throw new Error("no local game");
       }
     } else {
-      return generateLevelData(0);
+      if (this.onlineGameState) {
+        return this.onlineGameState;
+      } else {
+        return null;
+      }
     }
   }
 
   handleInput(): void {
     if (keysPressed["KeyE"]) {
       GameManager.activeScene = editorScene;
+    }
+
+    if (keysPressed["KeyC"] && !this.gameId) {
+      GameManager.socket.emit("start", (gameId: string) => {
+        this.gameId = gameId;
+      });
+    }
+
+    if (keysPressed["KeyJ"] && !this.gameId) {
+      GameManager.socket.emit("join", (gameId: string) => {
+        this.gameId = gameId;
+      });
+    }
+
+    if (keysPressed[KEYS.LEFT]) {
+      this.sendCommand(Command.PlayerMove, { dir: DIR.LEFT });
+    } else if (keysPressed[KEYS.RIGHT]) {
+      this.sendCommand(Command.PlayerMove, { dir: DIR.RIGHT });
+    } else if (keysPressed[KEYS.UP]) {
+      this.sendCommand(Command.PlayerMove, { dir: DIR.UP });
+    } else if (keysPressed[KEYS.DOWN]) {
+      this.sendCommand(Command.PlayerMove, { dir: DIR.DOWN });
+    }
+
+    if (keysPressed[KEYS.SHOOT]) {
+      this.sendCommand(Command.PlayerShoot);
     }
 
     if (this.local) {
@@ -106,7 +144,15 @@ export class GameScene implements IScene {
   }
 
   setupOnlineGame(): void {
-    console.log("online game? huh");
+    GameManager.socket.on("gameState", (gameState: ILevelState) => {
+      this.onlineGameState = gameState;
+    });
+  }
+
+  sendCommand(command: Command, payload?: any): void {
+    if (this.gameId) {
+      GameManager.socket.emit("command", { command, payload });
+    }
   }
 }
 

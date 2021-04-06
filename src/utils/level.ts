@@ -50,7 +50,7 @@ export function buildCluster(
 }
 
 export function blocksInCluster(
-  blocks: Block[],
+  blocks: (Block | null)[],
   clusterX: number,
   clusterY: number
 ): Block[] {

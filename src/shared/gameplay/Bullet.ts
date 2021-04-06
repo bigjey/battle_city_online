@@ -13,14 +13,15 @@ import type { Block } from "./Block";
 
 import { Body } from "./Body";
 import { Tank } from "./Tank";
+import { GameRunner } from "../GameRunner";
 
 export class Bullet extends Body {
   dir: DIR = DIR.NONE;
   tank: Tank;
   destroy = false;
-  game;
+  game: GameRunner;
 
-  constructor(tank: Tank, x: number, y: number, game, dir: DIR) {
+  constructor(tank: Tank, x: number, y: number, game: GameRunner, dir: DIR) {
     super(x, y, BULLET_SIZE, BULLET_SIZE);
 
     this.dir = dir;
@@ -123,7 +124,6 @@ export class Bullet extends Body {
     }
 
     let pos1, pos2, pos3, pos4: IXY;
-    let i1, i2, i3, i4: number;
 
     if (this.dir === DIR.LEFT || this.dir === DIR.RIGHT) {
       pos1 = {
@@ -161,10 +161,10 @@ export class Bullet extends Body {
       };
     }
 
-    i1 = pos1.y * BLOCKS_IN_ROW + pos1.x;
-    i2 = pos2.y * BLOCKS_IN_ROW + pos2.x;
-    i3 = pos3.y * BLOCKS_IN_ROW + pos3.x;
-    i4 = pos4.y * BLOCKS_IN_ROW + pos4.x;
+    const i1 = pos1.y * BLOCKS_IN_ROW + pos1.x;
+    const i2 = pos2.y * BLOCKS_IN_ROW + pos2.x;
+    const i3 = pos3.y * BLOCKS_IN_ROW + pos3.x;
+    const i4 = pos4.y * BLOCKS_IN_ROW + pos4.x;
 
     // first side of hit
     if (blockIndexInBounds(pos1.x, pos1.y) && this.game.blocks[i1]) {

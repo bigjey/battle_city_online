@@ -47,4 +47,5 @@ export enum BlockType {
 
 export enum Command {
   PlayerMove,
+  PlayerShoot,
 }

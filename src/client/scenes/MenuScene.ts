@@ -41,9 +41,10 @@ export class MenuScene implements IScene {
     if (keysPressed["Enter"]) {
       switch (this.selected) {
         case Item.ONE_PLAYER:
-          GameManager.activeScene = new GameScene();
+          GameManager.activeScene = new GameScene(1, true);
           break;
         case Item.TWO_PLAYERS:
+          GameManager.activeScene = new GameScene(1, false);
           break;
         case Item.CONSTRUCTION:
           break;
